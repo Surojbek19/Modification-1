@@ -20,9 +20,22 @@
 //MASALAN: getDigits("m14i1t") return qiladi "141"
 
 
-function getDigits(word: string) {
-    let digits = word.split("").filter(item => !isNaN(Number(item))).join("");
-    return digits;
-}
+// function getDigits(word: string) {
+//     let digits = word.split("").filter(item => !isNaN(Number(item))).join("");
+//     return digits;
+// }
 
-console.log(getDigits("m14i1t")); 
+// console.log(getDigits("m14i1t")); 
+
+
+/* 
+Project Standarts 
+- Looging standarts
+- Naming standarts
+   function, method, variables =>  CAMLE case          ---goHome
+   class => PASCAL case                                ---MemberService
+   folders => KABAB case 
+   CSS => SNAKE                                        ---button_style
+- Error handling
+*/
+
