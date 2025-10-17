@@ -34,8 +34,14 @@ Project Standarts
 - Naming standarts
    function, method, variables =>  CAMLE case          ---goHome
    class => PASCAL case                                ---MemberService
-   folders => KABAB case 
+   folders, file => KABAB case 
    CSS => SNAKE                                        ---button_style
 - Error handling
 */
+
+/* 
+Traditianoal API
+REST API
+GraphQl API
+ */
 

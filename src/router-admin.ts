@@ -2,7 +2,7 @@ import express from "express";
 const routerAdmin = express.Router();
 import restaurantController from "./controllers/restaurant.controller";
 
-
+//RESTAURANT
 routerAdmin.get("/", restaurantController.goHome);
 
 routerAdmin
@@ -13,4 +13,8 @@ routerAdmin
     .get("/signup", restaurantController.getSignup)
     .post("/signup", restaurantController.processSignup)
 
+
+//PRODUCT
+
+//USER
 export default routerAdmin;
