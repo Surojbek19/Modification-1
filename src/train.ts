@@ -45,3 +45,33 @@ REST API
 GraphQl API
  */
 
+
+
+//TASK-I:
+
+//Shunday function tuzing, u parametrdagi array ichida eng ko'p
+//takrorlangan raqamni topib qaytarsin.
+
+//MASALAN: majorityElement([1, 2, 3, 4, 5, 4, 3, 4]); return 4
+
+//Yuqoridag misolda argument sifatida kiritilayotgan array tarkibida 4 soni ko'p takrorlanganligi uchun 4'ni return qilmoqda.
+
+function majorityElement(array: number[]) {
+   let highestCount = 0;
+   let mostRepeatedValue = array[0]
+   for(let i = 0; i < array.length; i++) {
+      let countNum = 1;
+      for(let j = i + 1; j < array.length; j++) {
+         if(array[i] === array[j]) {
+            countNum++;
+         }
+      }
+      if(countNum > highestCount) {
+         highestCount = countNum;
+         mostRepeatedValue = array[i];
+      }
+   }
+   return mostRepeatedValue;
+}
+
+console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 5, 2, 5]))
