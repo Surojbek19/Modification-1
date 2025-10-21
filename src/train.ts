@@ -56,22 +56,43 @@ GraphQl API
 
 //Yuqoridag misolda argument sifatida kiritilayotgan array tarkibida 4 soni ko'p takrorlanganligi uchun 4'ni return qilmoqda.
 
-function majorityElement(array: number[]) {
-   let highestCount = 0;
-   let mostRepeatedValue = array[0]
-   for(let i = 0; i < array.length; i++) {
-      let countNum = 1;
-      for(let j = i + 1; j < array.length; j++) {
-         if(array[i] === array[j]) {
-            countNum++;
-         }
-      }
-      if(countNum > highestCount) {
-         highestCount = countNum;
-         mostRepeatedValue = array[i];
+// function majorityElement(array: number[]) {
+//    let highestCount = 0;
+//    let mostRepeatedValue = array[0]
+//    for(let i = 0; i < array.length; i++) {
+//       let countNum = 1;
+//       for(let j = i + 1; j < array.length; j++) {
+//          if(array[i] === array[j]) {
+//             countNum++;
+//          }
+//       }
+//       if(countNum > highestCount) {
+//          highestCount = countNum;
+//          mostRepeatedValue = array[i];
+//       }
+//    }
+//    return mostRepeatedValue;
+// }
+
+// console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 5, 2, 5]))
+
+//TASK J:
+
+//Shunday function tuzing, u string qabul qilsin. Va string ichidagi eng uzun so'zni qaytarsin.
+
+//MASALAN: findLongestWord("I came from Uzbekistan!"); return "Uzbekistan!"
+
+//Yuqoridagi text tarkibida 'Uzbekistan' eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda
+
+function findLongestWord(sentence: string) {
+   let words = sentence.split(" ");
+   let longest = "";
+   for(let i = 0; i < words.length; i++) {
+      if(words[i].length > longest.length) {
+         longest = words[i];
       }
    }
-   return mostRepeatedValue;
+    return longest;
 }
 
-console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 5, 2, 5]))
+console.log(findLongestWord("I came from Uzbekisatn!"))
