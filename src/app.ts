@@ -19,7 +19,7 @@ app.use(morgan(MORGAN_FORMAT))
 
 //** 3-VIEWS **/
 app.set(`views`, path.join(__dirname, `views`));
-app.set(`views enjine`, `ejs`);
+app.set(`view engine`, `ejs`);
 
 //** 4-ROUTERS **/
 app.use("/admin", routerAdmin); //BSSR: EJS
