@@ -84,15 +84,35 @@ GraphQl API
 
 //Yuqoridagi text tarkibida 'Uzbekistan' eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda
 
-function findLongestWord(sentence: string) {
-   let words = sentence.split(" ");
-   let longest = "";
-   for(let i = 0; i < words.length; i++) {
-      if(words[i].length > longest.length) {
-         longest = words[i];
+// function findLongestWord(sentence: string) {
+//    let words = sentence.split(" ");
+//    let longest = "";
+//    for(let i = 0; i < words.length; i++) {
+//       if(words[i].length > longest.length) {
+//          longest = words[i];
+//       }
+//    }
+//     return longest;
+// }
+
+// console.log(findLongestWord("I came from Uzbekisatn!"))
+
+//TASK K: 
+
+//Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
+//MASALAN: countVowels("string") return 1;
+
+function countVowels(word: string) {
+   const vowelSeparate = ["a", "e", "i", "o", "u"];
+   let wordSeparate = word.toLowerCase().split("");
+   let count = 0;
+   for(let i = 0; i < wordSeparate.length; i++) {
+      for(let j = 0; j < vowelSeparate.length; j++) {
+         if(wordSeparate[i] === vowelSeparate[j]) {
+            count++;
+         }
       }
    }
-    return longest;
+return count;
 }
-
-console.log(findLongestWord("I came from Uzbekisatn!"))
+console.log(countVowels("AUSTRALIA"));
