@@ -102,17 +102,35 @@ GraphQl API
 //Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
 //MASALAN: countVowels("string") return 1;
 
-function countVowels(word: string) {
-   const vowelSeparate = ["a", "e", "i", "o", "u"];
-   let wordSeparate = word.toLowerCase().split("");
-   let count = 0;
-   for(let i = 0; i < wordSeparate.length; i++) {
-      for(let j = 0; j < vowelSeparate.length; j++) {
-         if(wordSeparate[i] === vowelSeparate[j]) {
-            count++;
-         }
-      }
+// function countVowels(word: string) {
+//    const vowelSeparate = ["a", "e", "i", "o", "u"];
+//    let wordSeparate = word.toLowerCase().split("");
+//    let count = 0;
+//    for(let i = 0; i < wordSeparate.length; i++) {
+//       for(let j = 0; j < vowelSeparate.length; j++) {
+//          if(wordSeparate[i] === vowelSeparate[j]) {
+//             count++;
+//          }
+//       }
+//    }
+// return count;
+// }
+// console.log(countVowels("AUSTRALIA"));
+
+
+//TASK L: 
+
+//Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
+//MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
+
+function reverseSentence(sentence: string) {
+   let sentenceSplit = sentence.split(" ");
+   let reversedWords = [];
+   for(let i = 0; i < sentenceSplit.length; i++) {
+     reversedWords.push(sentenceSplit[i].split("").reverse().join(""));
+     
+     
    }
-return count;
+   return reversedWords.join(" ");
 }
-console.log(countVowels("AUSTRALIA"));
+console.log(reverseSentence("Do you like soccer?"));
