@@ -123,14 +123,31 @@ GraphQl API
 //Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
 //MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
 
-function reverseSentence(sentence: string) {
-   let sentenceSplit = sentence.split(" ");
-   let reversedWords = [];
-   for(let i = 0; i < sentenceSplit.length; i++) {
-     reversedWords.push(sentenceSplit[i].split("").reverse().join(""));
+// function reverseSentence(sentence: string) {
+//    let sentenceSplit = sentence.split(" ");
+//    let reversedWords = [];
+//    for(let i = 0; i < sentenceSplit.length; i++) {
+//      reversedWords.push(sentenceSplit[i].split("").reverse().join(""));
      
      
-   }
-   return reversedWords.join(" ");
+//    }
+//    return reversedWords.join(" ");
+// }
+// console.log(reverseSentence("Do you like soccer?"));
+
+//TASK M: 
+
+//Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array 
+//ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil 
+// topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
+//MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
+
+function getSquareNumbers(array: number[]) {
+   let result = array.map(a => ({
+      number: a,
+      square: a * a,
+   }))
+   return result;
 }
-console.log(reverseSentence("Do you like soccer?"));
+console.log(getSquareNumbers([5, 2, 3]))
+
