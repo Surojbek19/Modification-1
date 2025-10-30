@@ -142,12 +142,27 @@ GraphQl API
 // topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
 //MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
 
-function getSquareNumbers(array: number[]) {
-   let result = array.map(a => ({
-      number: a,
-      square: a * a,
-   }))
-   return result;
-}
-console.log(getSquareNumbers([5, 2, 3]))
+// function getSquareNumbers(array: number[]) {
+//    let result = array.map(a => ({
+//       number: a,
+//       square: a * a,
+//    }))
+//    return result;
+// }
+// console.log(getSquareNumbers([5, 2, 3]))
 
+// TASK N:
+
+// Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
+
+// MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
+
+function palindromCheck(word: string) {
+   let reversed = word.split("").reverse().join("");
+   if(word === reversed) {
+      return true;
+   } else {
+      return false;
+   }
+}
+console.log(palindromCheck("son"));
