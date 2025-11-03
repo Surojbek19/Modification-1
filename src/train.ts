@@ -157,12 +157,34 @@ GraphQl API
 
 // MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
 
-function palindromCheck(word: string) {
-   let reversed = word.split("").reverse().join("");
-   if(word === reversed) {
-      return true;
-   } else {
-      return false;
+// function palindromCheck(word: string) {
+//    let reversed = word.split("").reverse().join("");
+//    if(word === reversed) {
+//       return true;
+//    } else {
+//       return false;
+//    }
+// }
+// console.log(palindromCheck("son"));
+
+//TASK O:
+
+//Shunday function yozing va u har xil qiymatlardan iborat array qabul qilsin.
+//Va array ichidagi sonlar yig'indisini hisoblab chiqgan javobni qaytarsin
+
+//MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]); return 45
+
+//Yuqoridagi misolda array tarkibida faqatgina ikkita yagona son mavjud bular 10 hamda 35
+//Qolganlari nested bo'lib yoki type'lari number emas.
+
+function calculateSumOfNumbers(array: any) {
+   let calculated = 0;
+   for(let i = 0; i < array.length; i++) {
+      if(typeof array[i] === "number") {
+         calculated += array[i];
+      }
+    
    }
+     return calculated;
 }
-console.log(palindromCheck("son"));
+console.log(calculateSumOfNumbers([10, "10", {son: 10}, 12, true, 35]))
