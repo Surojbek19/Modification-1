@@ -177,14 +177,42 @@ GraphQl API
 //Yuqoridagi misolda array tarkibida faqatgina ikkita yagona son mavjud bular 10 hamda 35
 //Qolganlari nested bo'lib yoki type'lari number emas.
 
-function calculateSumOfNumbers(array: any) {
-   let calculated = 0;
-   for(let i = 0; i < array.length; i++) {
-      if(typeof array[i] === "number") {
-         calculated += array[i];
-      }
+// function calculateSumOfNumbers(array: any) {
+//    let calculated = 0;
+//    for(let i = 0; i < array.length; i++) {
+//       if(typeof array[i] === "number") {
+//          calculated += array[i];
+//       }
     
-   }
-     return calculated;
+//    }
+//      return calculated;
+// }
+// console.log(calculateSumOfNumbers([10, "10", {son: 10}, 12, true, 35]))
+
+//TASK P:
+
+//Parametr sifatida yagona object qabul qiladigan function yozing.
+//Qabul qilingan objectni nested array sifatida convert qilib qaytarsin
+
+//MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+
+function objectToArray(obj: object){
+  const keys = Object.keys(obj)
+  const values = Object.values(obj);
+  let myArr = [];
+  
+  for(let i = 0; i < keys.length; i++){
+    const tempArr = [];
+    tempArr.push(keys[i], values[i]);
+    myArr.push(tempArr);
+  }
+  
+  return myArr;
 }
-console.log(calculateSumOfNumbers([10, "10", {son: 10}, 12, true, 35]))
+
+const myObj = {
+  a: 10, 
+  b: 20
+}
+
+console.log(objectToArray(myObj));
