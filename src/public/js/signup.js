@@ -27,10 +27,10 @@ console.log("Signup frontend javascript file");
  });
 
 function validateSignupForm() {
-    const memberNick = $(".member-nick").val();
-    const membetPhone = $(".member-phone").val();
-    const memberPassword = $(".member-password").val();
-    const confirmPassword = $(".confirm-password").val();
+    const memberNick = $(".member-nick").val(),
+     membetPhone = $(".member-phone").val(),
+     memberPassword = $(".member-password").val(),
+     confirmPassword = $(".confirm-password").val();
    
     if(
         memberNick === "" ||
