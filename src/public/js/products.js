@@ -4,11 +4,11 @@ $(function () {
     $(".product-collection").on("change", () => {
         const selectedValue = $(".product-collection").val();
         if (selectedValue === "DRINK") {
-            $(".product-collection").hide();
-            $(".product-volume").show();
+            $("#product-collection").hide();
+            $("#product-volume").show();
         } else {
-            $(".product-volume").hide();
-            $(".product-collection").show();
+            $("#product-volume").hide();
+            $("#product-collection").show();
         }
     });
 
@@ -22,13 +22,33 @@ $(function () {
         $("#process-btn").css("display", "flex")
     });
 
+    $(".new-product-status").on("change", async function(e) {
+        const id = e.target.id;
+        const productStatus = $(`#${id}.new-product-status`).val();
+        console.log("id:", id);
+        console.log("productStatus:", productStatus);
+        
+        try{
+            const response = await axios.post(`/admin/product/${id}`, {productStatus: productStatus});
+            console.log("response:", response);
+            const result = response.data;
+            if(result.data) {
+                console.log("Product updated!");
+                    $(".new-product-status").blur();
+            } else alert("Product update failed!");
+        } catch(err) {
+            console.log(err);
+            alert("Product update failed!")
+        }
+    })
+
 });
 
 function validateForm() {
     const productName = $(".product-name").val();
     const productPrice = $(".product-price").val();
     const productLeftCount = $(".product-left-count").val();
-    const productCollectin = $(".product-collection").val();
+    const productCollection = $(".product-collection").val();
     const productDesc = $(".product-desc").val();
     const productStatus = $(".product-status").val();
 
@@ -36,13 +56,15 @@ function validateForm() {
         productName === "" ||
         productPrice === "" ||
         productLeftCount === "" ||
-        productCollectin === "" ||
+        productCollection === "" ||
         productDesc === "" ||
         productStatus === "" 
     ) {
         alert("Please insert all details!");
         return false;
-    } else true;
+    } else {
+        return true;
+    }
 }
 
 function preViewFileHandler(input, order) {
@@ -51,7 +73,7 @@ function preViewFileHandler(input, order) {
 
     const file = $(`.${imgClassName}`).get(0).files[0];
     const fileType = file['type'];
-    const validImagetype = ["image/jpg", "image/jpeg", "image/png"];
+    const validImageType = ["image/jpg", "image/jpeg", "image/png"];
     if(!validImageType.includes(fileType)) {
         alert("Please, insert only jpg, jpeg and png!")
     } else {
