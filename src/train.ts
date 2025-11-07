@@ -196,23 +196,48 @@ GraphQl API
 
 //MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 
-function objectToArray(obj: object){
-  const keys = Object.keys(obj)
-  const values = Object.values(obj);
-  let myArr = [];
+// function objectToArray(obj: object){
+//   const keys = Object.keys(obj)
+//   const values = Object.values(obj);
+//   let myArr = [];
   
-  for(let i = 0; i < keys.length; i++){
-    const tempArr = [];
-    tempArr.push(keys[i], values[i]);
-    myArr.push(tempArr);
-  }
+//   for(let i = 0; i < keys.length; i++){
+//     const tempArr = [];
+//     tempArr.push(keys[i], values[i]);
+//     myArr.push(tempArr);
+//   }
   
-  return myArr;
+//   return myArr;
+// }
+
+// const myObj = {
+//   a: 10, 
+//   b: 20
+// }
+
+// console.log(objectToArray(myObj));
+
+//TASK Q:
+
+// Shunday function yozing, u 2 ta parametrga ega bo'lib birinchisi object, ikkinchisi string bo'lsin.
+// Agar qabul qilinayotgan ikkinchi string, objectning biror bir propertysiga mos kelsa, 'true', aks holda mos kelmasa 'false' qaytarsin.
+
+// MASALAN: hasProperty({ name: "BMW", model: "M3" }, "model"); return true;
+// Ushbu misolda, 'model' string, objectning propertysiga mos kelganligi uchun 'true' natijani qaytarmoqda
+
+// MASALAN: hasProperty({ name: "BMW", model: "M3" }, "year"); return false;
+// Ushbu misolda, ikkinchi argument sifatida berilayotgan 'year' objectning
+// propertysida mavjud bo'lmaganligi uchun 'false' natijani qaytarmoqda.
+
+
+interface Car {
+  name: string;
+  model: string;
+  //year: number;
 }
 
-const myObj = {
-  a: 10, 
-  b: 20
+function hasProperty(car: Car, word: string): boolean {
+  return word in car; 
 }
 
-console.log(objectToArray(myObj));
+console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
