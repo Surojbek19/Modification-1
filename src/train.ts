@@ -230,14 +230,37 @@ GraphQl API
 // propertysida mavjud bo'lmaganligi uchun 'false' natijani qaytarmoqda.
 
 
-interface Car {
-  name: string;
-  model: string;
-  //year: number;
-}
+// interface Car {
+//   name: string;
+//   model: string;
+//   //year: number;
+// }
 
-function hasProperty(car: Car, word: string): boolean {
-  return word in car; 
-}
+// function hasProperty(car: Car, word: string): boolean {
+//   return word in car; 
+// }
 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
+
+
+
+//TASK R
+
+// Shunday function yozing, u string parametrga ega bo'lsin.
+// Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
+// string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
+
+// MASALAN: calculate("1 + 3"); return 4;
+// 1 + 3 = 4, shu sababli 4 natijani qaytarmoqda.
+
+function calculate(hisoblab: string) {
+  let splited = hisoblab.split("").map(ch => Number(ch));
+  let count = 0;
+  for(let i = 0; i < splited.length; i++) {
+    if(!isNaN(splited[i])) {
+      count += splited[i];
+    }
+  }
+  return count;
+}
+console.log(calculate("6 + 9"))
