@@ -253,14 +253,32 @@ GraphQl API
 // MASALAN: calculate("1 + 3"); return 4;
 // 1 + 3 = 4, shu sababli 4 natijani qaytarmoqda.
 
-function calculate(hisoblab: string) {
-  let splited = hisoblab.split("").map(ch => Number(ch));
-  let count = 0;
-  for(let i = 0; i < splited.length; i++) {
-    if(!isNaN(splited[i])) {
-      count += splited[i];
-    }
+// function calculate(hisoblab: string) {
+//   let splited = hisoblab.split("").map(ch => Number(ch));
+//   let count = 0;
+//   for(let i = 0; i < splited.length; i++) {
+//     if(!isNaN(splited[i])) {
+//       count += splited[i];
+//     }
+//   }
+//   return count;
+// }
+// console.log(calculate("6 + 9"))
+
+//TASK-S:
+// Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+// MASALAN: missingNumber([3, 0, 1]) return 2
+
+function missingNumber(array: number[]) {
+  let num: number | string = "No missing number found!";
+  const sorted = array.sort((a, b) => a - b);
+  for (let i = 0; i < sorted.length - 1; i++) {
+      if ((sorted[i + 1] !== sorted[i] + 1)) {
+        num = sorted[i] + 1;
+        return num;
+      }
   }
-  return count;
+  return num;
 }
-console.log(calculate("6 + 9"))
+
+console.log(missingNumber([1, 2, 3, 4, 5]))
