@@ -269,16 +269,31 @@ GraphQl API
 // Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
 // MASALAN: missingNumber([3, 0, 1]) return 2
 
-function missingNumber(array: number[]) {
-  let num: number | string = "No missing number found!";
-  const sorted = array.sort((a, b) => a - b);
-  for (let i = 0; i < sorted.length - 1; i++) {
-      if ((sorted[i + 1] !== sorted[i] + 1)) {
-        num = sorted[i] + 1;
-        return num;
-      }
-  }
-  return num;
+// function missingNumber(array: number[]) {
+//   let num: number | string = "No missing number found!";
+//   const sorted = array.sort((a, b) => a - b);
+//   for (let i = 0; i < sorted.length - 1; i++) {
+//       if ((sorted[i + 1] !== sorted[i] + 1)) {
+//         num = sorted[i] + 1;
+//         return num;
+//       }
+//   }
+//   return num;
+// }
+
+// console.log(missingNumber([1, 2, 3, 4, 5]))
+
+// TASK T
+
+// Shunday function tuzing, u sonlardan tashkil topgan 2'ta array qabul qilsin.
+// Va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
+
+// MASALAN: mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]); return [0, 3, 4, 4, 6, 30, 31];
+
+// Yuqoridagi misolda, ikkala arrayni birlashtirib, tartib raqam bo'yicha tartiblab qaytarmoqda.
+function mergeSortedArrays(array: number[], array1: number[]) {
+  let merged = array.concat(array1).sort((a, b) => a - b);
+  return merged;
 }
 
-console.log(missingNumber([1, 2, 3, 4, 5]))
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]))
