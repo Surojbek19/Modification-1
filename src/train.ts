@@ -3,6 +3,8 @@
 //faqat positive raqamlarni olib string holatida return qilsin 
 //MASALAN: getPositive([1, -4, 2]) return qiladi "12"
 
+import { count } from "console";
+
 // function getPositive(array: number[]) {
 //     let positiveNum = array.filter(num => num >= 0).join("");
 //     return positiveNum;
@@ -291,9 +293,32 @@ GraphQl API
 // MASALAN: mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]); return [0, 3, 4, 4, 6, 30, 31];
 
 // Yuqoridagi misolda, ikkala arrayni birlashtirib, tartib raqam bo'yicha tartiblab qaytarmoqda.
-function mergeSortedArrays(array: number[], array1: number[]) {
-  let merged = array.concat(array1).sort((a, b) => a - b);
-  return merged;
+// function mergeSortedArrays(array: number[], array1: number[]) {
+//   let merged = array.concat(array1).sort((a, b) => a - b);
+//   return merged;
+// }
+
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]))
+
+// TASK U
+
+// Shunday function tuzing, uni number parametri bo'lsin. Va bu function berilgan parametrgacha, 0'dan boshlab
+// oraliqda nechta toq sonlar borligini aniqlab return qilsi.
+
+// MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+// Yuqoridagi birinchi misolda, argument sifatida, 9 berilmoqda. Va 0'dan boshlab sanaganda 9'gacha 4'ta toq son mavjud. 
+// Keyingi namunada ham xuddi shunday xolat takrorlanmoqda.
+
+
+function sumOdds(num: number) {
+  let count = 0;
+  for(let i = 0; i < num; i++) {
+    if(i % 2 !== 0) {
+      count++;
+    }
+  }
+  return count;
 }
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]))
+console.log(sumOdds(11))
