@@ -311,14 +311,53 @@ GraphQl API
 // Keyingi namunada ham xuddi shunday xolat takrorlanmoqda.
 
 
-function sumOdds(num: number) {
-  let count = 0;
-  for(let i = 0; i < num; i++) {
-    if(i % 2 !== 0) {
-      count++;
+// function sumOdds(num: number) {
+//   let count = 0;
+//   for(let i = 0; i < num; i++) {
+//     if(i % 2 !== 0) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+// console.log(sumOdds(11))
+
+// TASK V
+
+// Shunday function yozing, uni string parametri bo'lsin.
+// Va bu function stringdagi har bir harfni o'zi bilan
+// necha marotaba taktorlanganligini ko'rsatuvchi object qaytarsin.
+  
+// MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+// Yuqoridagi misolda, 'hello' so'zi tarkibida
+// qatnashgan harflar necha marotaba takrorlangini bilan
+// object sifatida qaytarilmoqda.
+
+function countChars(word: string) {
+  let objVal = 0;
+  let objKey = "";
+  let myObj:any = {};
+
+  const letters = word.split("");
+
+  for(let i=0; i<letters.length; i++){
+    const objKeys = Object.keys(myObj)
+    const letter = letters[i] 
+    
+    if(!objKeys.includes(letter)){
+      myObj[letter] = 1;
+      for(let j=i+1; j<letters.length; j++){
+        if(letter === letters[j]){
+          myObj[letter] = myObj[letter] + 1;
+        }
+      }
+      
     }
+
   }
-  return count;
+  return myObj;
 }
 
-console.log(sumOdds(11))
+console.log(countChars("hello"));
