@@ -374,7 +374,7 @@ GraphQl API
 // Yuqoridagi namunada berilayotgan array ikkinchi parametr 3'ga
 // asoslanib 3 bo'lakga bo'linib qaytmoqda. Qolgani esa o'z holati qolyapti
 
-function chunkArray(array: number[], num: number): number[][] {
+function chunkArray(array: number[], num: number) {
   const result = [];
   for(let i =0; i < array.length; i+=num) {
     result.push(array.slice(i, i + num));
