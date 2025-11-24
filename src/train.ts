@@ -235,7 +235,7 @@ GraphQl API
 // interface Car {
 //   name: string;
 //   model: string;
-//   //year: number;
+//   year: number;
 // }
 
 // function hasProperty(car: Car, word: string): boolean {
@@ -374,12 +374,48 @@ GraphQl API
 // Yuqoridagi namunada berilayotgan array ikkinchi parametr 3'ga
 // asoslanib 3 bo'lakga bo'linib qaytmoqda. Qolgani esa o'z holati qolyapti
 
-function chunkArray(array: number[], num: number) {
-  const result = [];
-  for(let i =0; i < array.length; i+=num) {
-    result.push(array.slice(i, i + num));
+// function chunkArray(array: number[], num: number) {
+//   const result = [];
+//   for(let i =0; i < array.length; i+=num) {
+//     result.push(array.slice(i, i + num));
+//   }
+//   return result;
+// }
+
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3))
+
+// TASK X
+
+// Shunday function yozing, uni object va string parametrlari bo'lsin.
+// Bu function, birinchi object parametri tarkibida, kalit sifatida ikkinchi string parametri
+// necha marotaba takrorlanganlini sanab qaytarsin.
+
+// Eslatma => Nested object'lar ham sanalsin
+
+// MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+
+// Yuqoridagi misolda, birinchi argument object, ikkinchi argument 'model'.
+// Funktsiya, shu ikkinchi argument 'model', birinchi argument object
+// tarkibida kalit sifatida 2 marotaba takrorlanganligi uchun 2 soni return qilmoqda
+
+
+function countOccurrences(obj: any, word: string) {
+  let count = 0;
+
+  for (let key in obj) {
+    if (key === word) count++;
+
+    const value = obj[key];
+
+    if (value !== null && typeof value === "object") {
+      count += countOccurrences(value, word);
+    }
   }
-  return result;
+
+  return count;
 }
 
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3))
+console.log(countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model'))
+
+
+
