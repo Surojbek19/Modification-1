@@ -74,7 +74,8 @@ class MemberService {
     };
 
     public async getTopUsers(): Promise<Member[]> {
-        const result = await this.memberModel.find({ 
+        const result = await this.memberModel
+        .find({ 
             memberStatus: MemberStatus.ACTIVE,
             memberPoints: { $gte: 1 }, // gte => greater than 
          }) 
@@ -87,6 +88,16 @@ class MemberService {
     }
 
     /**=>SSR<=**/
+
+    public async getRestaurant(): Promise<Member> {
+        const result = await this.memberModel
+        .findOne({ memberType: MemberType.RESTAURANT })
+        .lean() //Odatda mongoose documnet bo'lgani uchun undan kelgan datani o'gartira olmaymiz lekin "lean" documnet ni plain objectga aylantrib berish uchun ishlatamiz. 
+        .exec()
+        result.target = "test"; // Mana shu datani result ni oxiriga qo'shib beradi
+        if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND)
+        return result;
+    }
 
     public async processSignup(input: MemberInput): Promise<Member> {
         const exist = await this.memberModel
