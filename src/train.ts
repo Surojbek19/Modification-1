@@ -399,23 +399,48 @@ GraphQl API
 // tarkibida kalit sifatida 2 marotaba takrorlanganligi uchun 2 soni return qilmoqda
 
 
-function countOccurrences(obj: any, word: string) {
-  let count = 0;
+// function countOccurrences(obj: any, word: string) {
+//   let count = 0;
 
-  for (let key in obj) {
-    if (key === word) count++;
+//   for (let key in obj) {
+//     if (key === word) count++;
 
-    const value = obj[key];
+//     const value = obj[key];
 
-    if (value !== null && typeof value === "object") {
-      count += countOccurrences(value, word);
+//     if (value !== null && typeof value === "object") {
+//       count += countOccurrences(value, word);
+//     }
+//   }
+
+//   return count;
+// }
+
+// console.log(countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model'))
+
+
+
+// TASK Y
+
+// Shunday function yozing, uni 2'ta array parametri bo'lsin.
+// Bu function ikkala arrayda ham ishtirok etgan bir xil
+// qiymatlarni yagona arrayga joylab qaytarsin.
+
+// MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
+
+// Yuqoridagi misolda, argument sifatida berilayotgan array'larda
+// o'xshash sonlar mavjud. Function'ning vazifasi esa ana shu
+// ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
+// joylab return qilmoqda.
+
+function findIntersection(a1: number[], a2: number[]) {
+  const set = new Set(a2);
+  const result: number[] = [];
+  for(let n of a1) {
+    if(set.has(n)) {
+      result.push(n);
     }
   }
-
-  return count;
+  return result;
 }
 
-console.log(countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model'))
-
-
-
+console.log(findIntersection([1,2,3], [3,2,0]));
