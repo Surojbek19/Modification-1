@@ -1,7 +1,9 @@
+import { ProductStatus } from "../libs/enums/product.enum";
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Errors";
-import { Product, ProductInput } from "../libs/types/product";
+import { Product, ProductInput, ProductInquiry } from "../libs/types/product";
 import ProductModel from "../schema/Product.model";
+import { T } from "../libs/types/common";
 
 class ProductService {
     private readonly productModel; 
@@ -11,6 +13,29 @@ class ProductService {
     }
 /**=>SPA<=**/
 
+public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
+    const match: T ={ productStatus: ProductStatus.PROCESS };
+
+    if(inquiry.productCollection)
+        match.productCollection = inquiry.productCollection;
+    if(inquiry.search) 
+        match.productName = { $regex: new RegExp(inquiry.search, "i") }
+
+    const sort: T =
+        inquiry.order === "productPrice"
+            ? { [inquiry.order]: 1 } //[inquiry.order] bu array emas bu "key" productPrice da kelgan product baxosi
+            : { [inquiry.order]: -1 };
+
+    const result = await this.productModel
+        .aggregate([
+            { $match: match },
+            { $sort: sort },
+            { $skip: (inquiry.page * 1 -1) * inquiry.limit }, // Bu ikkalsi bizga Pegination ni hosil qilib beradi
+            { $limit: inquiry.limit * 1 }, // Bu ikkalsi bizga Pegination ni hosil qilib beradi
+    ])
+    .exec();
+    return result;
+}
 
 /**=>SSR<=**/
 
