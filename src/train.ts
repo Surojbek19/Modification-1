@@ -432,15 +432,36 @@ GraphQl API
 // ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
 // joylab return qilmoqda.
 
-function findIntersection(a1: number[], a2: number[]) {
-  const set = new Set(a2);
-  const result: number[] = [];
-  for(let n of a1) {
-    if(set.has(n)) {
-      result.push(n);
-    }
-  }
-  return result;
+// function findIntersection(a1: number[], a2: number[]) {
+//   const set = new Set(a2);
+//   const result: number[] = [];
+//   for(let n of a1) {
+//     if(set.has(n)) {
+//       result.push(n);
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(findIntersection([1,2,3], [3,2,0]));
+
+// TASK Z
+
+// Shunday function yozing. Bu function sonlardan iborat array
+// qabul qilsin. Function'ning vazifasi array tarkibidagi juft
+// sonlarni topib ularni yig'disini qaytarsin.
+
+// MASALAN:
+// sumEvens([1, 2, 3]); return 2;
+// sumEvens([1, 2, 3, 2]); return 4;
+
+// Yuqoridagi misolda, bizning funktsiya
+// berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
+// sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
+
+function sumEvens(array: number[]) {
+  let evens = array.filter(n => n % 2 === 0);
+  return evens.reduce((sum, n) => sum + n, 0);
 }
 
-console.log(findIntersection([1,2,3], [3,2,0]));
+console.log(sumEvens([1, 2, 3, 4])); 
