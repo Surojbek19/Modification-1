@@ -459,9 +459,20 @@ GraphQl API
 // berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
 // sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
 
-function sumEvens(array: number[]) {
-  let evens = array.filter(n => n % 2 === 0);
-  return evens.reduce((sum, n) => sum + n, 0);
-}
+// function sumEvens(array: number[]) {
+//   let evens = array.filter(n => n % 2 === 0);
+//   return evens.reduce((sum, n) => sum + n, 0);
+// }
 
-console.log(sumEvens([1, 2, 3, 4])); 
+// console.log(sumEvens([1, 2, 3, 4])); 
+
+// TASK-ZB:
+
+// Shunday function yozing, uni 2 ta number parametri bolsin va berilgan sonlar orasidan random raqam return qilsin
+
+// MASALAN: randomBetween(30, 50) return 45
+
+function randomBetween(num1: number, num2: number) {
+  return Math.floor(Math.random() * (num2 - num1)) + num1;
+}
+console.log("Random number:", randomBetween(20, 50))
