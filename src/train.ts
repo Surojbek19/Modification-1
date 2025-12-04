@@ -472,7 +472,28 @@ GraphQl API
 
 // MASALAN: randomBetween(30, 50) return 45
 
-function randomBetween(num1: number, num2: number) {
-  return Math.floor(Math.random() * (num2 - num1)) + num1;
+// function randomBetween(num1: number, num2: number) {
+//   return Math.floor(Math.random() * (num2 - num1)) + num1;
+// }
+// console.log("Random number:", randomBetween(20, 50))
+
+
+
+// TASK ZC
+
+// Selisy (°C) shkalasi bo'yicha raqam qabul qilib, uni
+// Ferenhayt (°F) shkalisaga o'zgaritib beradigan function yozing.
+
+// MASALAN: celsiusToFahrenheit(0) return 32;
+// MASALAN: celsiusToFahrenheit(10) return 50;
+
+// Yuqoridagi misolda, 0°C, 32°F'ga teng.
+// Yoki 10 gradus Selsiy, 50 Farenhaytga teng.
+
+// °C va °F => Tempraturani o'lchashda ishlatiladigan o'lchov birligi.
+function celsiusToFahrenheit(celsius: number) {
+  let fahrenheit = (celsius * 9/5) + 32
+  return fahrenheit + "°F";
 }
-console.log("Random number:", randomBetween(20, 50))
+
+console.log(celsiusToFahrenheit(10))
