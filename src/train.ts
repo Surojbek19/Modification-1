@@ -491,9 +491,38 @@ GraphQl API
 // Yoki 10 gradus Selsiy, 50 Farenhaytga teng.
 
 // °C va °F => Tempraturani o'lchashda ishlatiladigan o'lchov birligi.
-function celsiusToFahrenheit(celsius: number) {
-  let fahrenheit = (celsius * 9/5) + 32
-  return fahrenheit + "°F";
-}
+// function celsiusToFahrenheit(celsius: number) {
+//   let fahrenheit = (celsius * 9/5) + 32
+//   return fahrenheit + "°F";
+// }
 
-console.log(celsiusToFahrenheit(10))
+// console.log(celsiusToFahrenheit(10))
+
+
+
+// TASK ZD
+
+// Shunday function yozing. Bu function o'ziga, parametr sifatida
+// birinchi oddiy number, keyin yagona array va uchinchi bo'lib oddiy number
+// qabul qilsin. Berilgan birinchi number parametr, arrayning tarkibida indeks bo'yicha hisoblanib,
+// shu aniqlangan indeksni uchinchi number parametr bilan alashtirib, natija sifatida
+// yangilangan arrayni qaytarsin.
+
+// MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2];
+
+// Yuqoridagi misolda, birinchi raqam bu '1' va arrayning '1'chi indeksi bu 3.
+// Bizning function uchinchi berilgan '2' raqamini shu '3' bilan almashtirib,
+// yangilangan arrayni qaytarmoqda.
+
+function changeNumberInArray(num: number, array: number[], num2: number) {
+  for(let i = 0; i < array.length; i++) {
+    if(i === num) {
+      array[i] = num2;
+      break
+    }
+  }
+  return array
+  }
+
+  console.log(changeNumberInArray(3, [1,3,7,2], 8))
+  
