@@ -514,15 +514,34 @@ GraphQl API
 // Bizning function uchinchi berilgan '2' raqamini shu '3' bilan almashtirib,
 // yangilangan arrayni qaytarmoqda.
 
-function changeNumberInArray(num: number, array: number[], num2: number) {
-  for(let i = 0; i < array.length; i++) {
-    if(i === num) {
-      array[i] = num2;
-      break
-    }
-  }
-  return array
-  }
+// function changeNumberInArray(num: number, array: number[], num2: number) {
+//   for(let i = 0; i < array.length; i++) {
+//     if(i === num) {
+//       array[i] = num2;
+//       break
+//     }
+//   }
+//   return array
+//   }
 
-  console.log(changeNumberInArray(3, [1,3,7,2], 8))
-  
+//   console.log(changeNumberInArray(3, [1,3,7,2], 8))
+
+
+// TASK-ZF:
+
+// Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
+// MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
+
+function capitalizeWords(sentence: string) {
+  const words = sentence.split(" ");
+
+  const result = words.map(word => {
+    if (word.length > 2) {
+      return word[0].toUpperCase() + word.slice(1);
+    }
+    return word;
+  });
+
+  return result.join(" ");
+}
+console.log(capitalizeWords('name should be a string'))
