@@ -532,16 +532,27 @@ GraphQl API
 // Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
 // MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
 
+// function capitalizeWords(sentence: string) {
+//   const words = sentence.split(" ");
+
+//   const result = words.map(word => {
+//     if (word.length > 2) {
+//       return word[0].toUpperCase() + word.slice(1);
+//     }
+//     return word;
+//   });
+
+//   return result.join(" ");
+// }
+// console.log(capitalizeWords('name should be a string'))
+
+// TASK-ZG:
+
+// Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
+// MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
+
 function capitalizeWords(sentence: string) {
-  const words = sentence.split(" ");
-
-  const result = words.map(word => {
-    if (word.length > 2) {
-      return word[0].toUpperCase() + word.slice(1);
-    }
-    return word;
-  });
-
-  return result.join(" ");
+  const word = sentence.split(" ").join("_")
+  return word;
 }
 console.log(capitalizeWords('name should be a string'))
