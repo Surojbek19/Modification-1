@@ -3,7 +3,7 @@
 //faqat positive raqamlarni olib string holatida return qilsin 
 //MASALAN: getPositive([1, -4, 2]) return qiladi "12"
 
-import { count } from "console";
+// import { count } from "console";
 
 // function getPositive(array: number[]) {
 //     let positiveNum = array.filter(num => num >= 0).join("");
@@ -551,8 +551,28 @@ GraphQl API
 // Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
 // MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
 
-function capitalizeWords(sentence: string) {
-  const word = sentence.split(" ").join("_")
-  return word;
+// function capitalizeWords(sentence: string) {
+//   const word = sentence.split(" ").join("_")
+//   return word;
+// }
+// console.log(capitalizeWords('name should be a string'))
+
+// TASK-ZH:
+
+// Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
+// MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
+function findDisappearedNumbers(num: number[]) {
+  let missingnum = [];
+  for(let i = 0; i < num.length; i++) {
+  let current = num[i];
+  let next = num[i + 1];
+  if(next !== current + 1) {
+    for(let n = current + 1; n < next; n++) {
+      missingnum.push(n);
+    }
+  }
+  }
+  return missingnum;
 }
-console.log(capitalizeWords('name should be a string'))
+
+console.log(findDisappearedNumbers([1, 3, 4, 7]))
