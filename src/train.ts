@@ -561,18 +561,32 @@ GraphQl API
 
 // Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
 // MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
-function findDisappearedNumbers(num: number[]) {
-  let missingnum = [];
-  for(let i = 0; i < num.length; i++) {
-  let current = num[i];
-  let next = num[i + 1];
-  if(next !== current + 1) {
-    for(let n = current + 1; n < next; n++) {
-      missingnum.push(n);
-    }
-  }
-  }
-  return missingnum;
+// function findDisappearedNumbers(num: number[]) {
+//   let missingnum = [];
+//   for(let i = 0; i < num.length; i++) {
+//   let current = num[i];
+//   let next = num[i + 1];
+//   if(next !== current + 1) {
+//     for(let n = current + 1; n < next; n++) {
+//       missingnum.push(n);
+//     }
+//   }
+//   }
+//   return missingnum;
+// }
+
+// console.log(findDisappearedNumbers([1, 3, 4, 7]))
+
+// TASK ZI
+
+// Shundan function yozing, bu function 3 soniydan so'ng
+// "Hello World!" so'zini qaytarsin.
+
+// MASALAN: delayHelloWorld("Hello World"); return "Hello World";
+function delayHelloWorld() {
+   setTimeout(() => {
+    console.log("Hello World")
+  }, 3000)
 }
 
-console.log(findDisappearedNumbers([1, 3, 4, 7]))
+delayHelloWorld()
