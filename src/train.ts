@@ -583,10 +583,39 @@ GraphQl API
 // "Hello World!" so'zini qaytarsin.
 
 // MASALAN: delayHelloWorld("Hello World"); return "Hello World";
-function delayHelloWorld() {
-   setTimeout(() => {
-    console.log("Hello World")
-  }, 3000)
+// function delayHelloWorld() {
+//    setTimeout(() => {
+//     console.log("Hello World")
+//   }, 3000)
+// }
+
+// delayHelloWorld()
+
+// TASK ZJ:
+
+// Shunday function yozing, u berilgan array ichidagi
+// raqamlarni qiymatini hisoblab qaytarsin.
+
+// MASALAN: reduceNestedArray([1, [1, 2, [4]]]); return 8;
+
+// Yuqoridagi misolda, array nested bo'lgan holdatda ham,
+// bizning function ularning yig'indisini hisoblab qaytarmoqda.
+
+// function reduceNestedArray(array: any []) {
+//    return array.flat(Infinity).reduce((sum, value) => sum + value, 0)
+// }
+// console.log(reduceNestedArray([1, [1, 2, [4]]]))
+
+function reduceNestedArray(array: any []) {
+   let sum = 0;
+   for(let i = 0; i < array.length; i++) {
+      if(typeof array[i] === 'number') {
+         sum += array[i];
+      } else if(Array.isArray(array[i])) { 
+         sum += reduceNestedArray(array[i])
+      }
+   }
+   return sum;
 }
 
-delayHelloWorld()
+console.log(reduceNestedArray([1, [1, 2, [4]]]))
