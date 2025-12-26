@@ -606,16 +606,33 @@ GraphQl API
 // }
 // console.log(reduceNestedArray([1, [1, 2, [4]]]))
 
-function reduceNestedArray(array: any []) {
-   let sum = 0;
-   for(let i = 0; i < array.length; i++) {
-      if(typeof array[i] === 'number') {
-         sum += array[i];
-      } else if(Array.isArray(array[i])) { 
-         sum += reduceNestedArray(array[i])
-      }
-   }
-   return sum;
-}
+// function reduceNestedArray(array: any []) {
+//    let sum = 0;
+//    for(let i = 0; i < array.length; i++) {
+//       if(typeof array[i] === 'number') {
+//          sum += array[i];
+//       } else if(Array.isArray(array[i])) { 
+//          sum += reduceNestedArray(array[i])
+//       }
+//    }
+//    return sum;
+// }
 
-console.log(reduceNestedArray([1, [1, 2, [4]]]))
+// console.log(reduceNestedArray([1, [1, 2, [4]]]))
+
+// TASK-ZK:
+
+// Shunday function yozing, u har soniyada bir marta consolega 1 dan 5 gacha 
+// bolgan raqamlarni chop etsin va 5 soniyadan keyin ishini toxtatsin.
+// MASALAN: printNumbers()
+function printNumbers() {
+   let count = 1;
+   const num = setInterval(() => {
+      console.log(count);
+      count++;
+      if(count>5) {
+         clearInterval(num)
+      }
+   }, 1000)
+}
+printNumbers()
