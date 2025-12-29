@@ -625,14 +625,26 @@ GraphQl API
 // Shunday function yozing, u har soniyada bir marta consolega 1 dan 5 gacha 
 // bolgan raqamlarni chop etsin va 5 soniyadan keyin ishini toxtatsin.
 // MASALAN: printNumbers()
-function printNumbers() {
-   let count = 1;
-   const num = setInterval(() => {
-      console.log(count);
-      count++;
-      if(count>5) {
-         clearInterval(num)
-      }
-   }, 1000)
+// function printNumbers() {
+//    let count = 1;
+//    const num = setInterval(() => {
+//       console.log(count);
+//       count++;
+//       if(count>5) {
+//          clearInterval(num)
+//       }
+//    }, 1000)
+// }
+// printNumbers()
+
+// TASK-ZL:
+
+// Shunday function yozing, u parametrda berilgan stringni kebab casega otkazib qaytarsin. 
+// Bosh harflarni kichik harflarga ham otkazsin.
+// MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
+function stringToKebab(sentence: string) {
+   let done = sentence.toLowerCase().split(" ").join("-")
+   return done;
 }
-printNumbers()
+
+console.log(stringToKebab("I love Kebab"))
