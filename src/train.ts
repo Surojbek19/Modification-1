@@ -660,9 +660,38 @@ GraphQl API
 // Yuqoridagi misolda, function kiritilgan raqamlarni orqasiga
 // o'girib (reverse) qilib qaytarmoqda.
 
-function reverseInteger(num: number) {
-   const reversed = Number(num.toString().split('').reverse().join(''));
-   return reversed;
+// function reverseInteger(num: number) {
+//    const reversed = Number(num.toString().split('').reverse().join(''));
+//    return reversed;
+// }
+
+// console.log(reverseInteger(123456789));
+
+// TASK-ZO:
+
+// Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. 
+// Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
+
+// MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+
+function areParenthesesBalanced(sentence: string) {
+   let coutn = 0;
+   for(let char of sentence) {
+      if(char === "(") {
+         coutn++;
+      }
+      if (char === ")") {
+         coutn--;
+      }
+      
+      //Even if the total number of ( and ) is equal, starting with a closing parenthesis makes it invalid, and the function correctly returns false.
+      
+      if(coutn < 0)
+          return false
+   }
+
+   return coutn === 0;
 }
 
-console.log(reverseInteger(123456789));
+
+console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"))
