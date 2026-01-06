@@ -674,24 +674,50 @@ GraphQl API
 
 // MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
 
-function areParenthesesBalanced(sentence: string) {
-   let coutn = 0;
-   for(let char of sentence) {
-      if(char === "(") {
-         coutn++;
-      }
-      if (char === ")") {
-         coutn--;
-      }
+// function areParenthesesBalanced(sentence: string) {
+//    let coutn = 0;
+//    for(let char of sentence) {
+//       if(char === "(") {
+//          coutn++;
+//       }
+//       if (char === ")") {
+//          coutn--;
+//       }
       
-      //Even if the total number of ( and ) is equal, starting with a closing parenthesis makes it invalid, and the function correctly returns false.
+//       //Even if the total number of ( and ) is equal, starting with a closing parenthesis makes it invalid, and the function correctly returns false.
       
-      if(coutn < 0)
-          return false
-   }
+//       if(coutn < 0)
+//           return false
+//    }
 
-   return coutn === 0;
+//    return coutn === 0;
+// }
+
+
+// console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"))
+
+// TASK-ZP:
+
+// Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
+// MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
+
+function countNumberAndLetters(word: string) {
+   const alpha = "abcdefghijklmnopqrstuvwxyz".split("");
+   const num = "0123456789".split("");
+
+   let splited = word.split("")
+
+   let number = 0;
+   let letter= 0;
+   for(let i = 0; i < splited.length; i++) {
+      if(num.includes(splited[i])) {
+         number++;
+      }
+      if(alpha.includes(splited[i])) {
+         letter++;
+      }
+   }
+   return {number, letter}
 }
 
-
-console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"))
+console.log(countNumberAndLetters("str1i4ng152%\¥"))
