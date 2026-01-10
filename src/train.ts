@@ -701,23 +701,44 @@ GraphQl API
 // Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
 // MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
 
-function countNumberAndLetters(word: string) {
-   const alpha = "abcdefghijklmnopqrstuvwxyz".split("");
-   const num = "0123456789".split("");
+// function countNumberAndLetters(word: string) {
+//    const alpha = "abcdefghijklmnopqrstuvwxyz".split("");
+//    const num = "0123456789".split("");
 
-   let splited = word.split("")
+//    let splited = word.split("")
 
-   let number = 0;
-   let letter= 0;
-   for(let i = 0; i < splited.length; i++) {
-      if(num.includes(splited[i])) {
-         number++;
-      }
-      if(alpha.includes(splited[i])) {
-         letter++;
+//    let number = 0;
+//    let letter= 0;
+//    for(let i = 0; i < splited.length; i++) {
+//       if(num.includes(splited[i])) {
+//          number++;
+//       }
+//       if(alpha.includes(splited[i])) {
+//          letter++;
+//       }
+//    }
+//    return {number, letter}
+// }
+
+// console.log(countNumberAndLetters("str1i4ng152%\¥"))
+
+
+
+// TASK ZQ:
+
+// Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
+// MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
+
+function findDuplicates(array: any[]) {
+   let duplicates: number[] = [];
+   for(let i = 0; i< array.length; i++) {
+      for(let j = i + 1; j < array.length; j++) {
+         if(array[i] === array[j] && !duplicates.includes(array[i])) {
+            duplicates.push(array[i] )
+         }
       }
    }
-   return {number, letter}
+   return duplicates;
 }
 
-console.log(countNumberAndLetters("str1i4ng152%\¥"))
+console.log(findDuplicates([1,2,3,2,4,5,4,3,5,4]))
