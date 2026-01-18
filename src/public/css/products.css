@@ -8,7 +8,7 @@
   align-items: center;
   min-height: 100vh;
   background:
-    linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)),
+    linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)),
     url("/img/Admin-home.jpg") center/cover no-repeat;
 }
 
