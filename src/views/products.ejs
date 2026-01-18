@@ -50,7 +50,7 @@
                 <td><%= value.productName %></td>
                 <td><%= value.productCollection %></td>
                 <td>
-                  <%= value.productCollection === 'DRINK' ?
+                  <%= value.productCollection === 'POT' ?
                    value.productVolume :
                    value.productSize %>
                 </td>
@@ -129,10 +129,10 @@
             <div class="half-input">
               <label>Product Type</label>
               <select class="product-collection" name="productCollection">
-                <option value="DISH" selected>Dish</option>
-                <option value="SALAD">Salad</option>
-                <option value="DESSERT">Dessert</option>
-                <option value="DRINK">Drink</option>
+                <option value="INDOOR" selected>Indoor</option>
+                <option value="OUTDOOR">Outdoor</option>
+                <option value="FLOWER">Flower</option>
+                <option value="POT">Pot</option>
                 <option value="OTHER">Other</option>
               </select>
             </div>
@@ -143,18 +143,18 @@
                 <option value="SMALL">Small</option>
                 <option value="NORMAL" selected>Normal</option>
                 <option value="LARGE">Large</option>
-                <option value="SET">Set</option>
               </select>
             </div>
 
             <div class="half-input" id="product-volume" style="display: none">
               <label>Drink Volume</label>
               <select class="product-volume" name="productVolume">
-                <option value="0.5">0,5 liters</option>
-                <option value="1" selected>1 liters</option>
-                <option value="1.2">1,2 liters</option>
-                <option value="1.5">1,5 liters</option>
-                <option value="2">2 liters</option>
+                <option value="10">10 cm</option>
+                <option value="12" selected>12 cm</option>
+                <option value="16">16 cm</option>
+                <option value="18">18 cm</option>
+                <option value="24">24 cm</option>
+                <option value="30">30 cm</option>
               </select>
             </div>
           </div>

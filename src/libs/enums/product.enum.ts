@@ -2,15 +2,15 @@ export enum ProductSize {
     SMALL = "SMALL",
     NORMAL = "NORMAL",
     LARGE ="LARGE",
-    SET ="SET",
 };
 
 export enum ProductVolume {
-    HALF = 0.5,
-    ONE = 1,
-    ONE_POINT_TWO = 1.2,
-    ONE_POINT_FIVE = 1.5,
-    TWO = 2,
+    TEN = 10,
+    TWELVE = 12,
+    SIXTEEN = 16,
+    EIGHTEEN = 18,
+    TWENTY_FOUR = 24,
+    THIRTY = 30,
 }
 
 export enum ProductStatus {
@@ -20,9 +20,9 @@ export enum ProductStatus {
 };
 
 export enum ProductCollection {
-    DISH = "DISH",
-    SALAD = "SALAD",
-    DESSERT = "DESSERT",
-    DRINK = "DRINK",
+    INDOOR = "INDOOR",
+    SALAD = "OUTDOOR",
+    FLOWER = "FLOWER",
+    POT = "POT",
     OTHER = "OTHER", 
 }

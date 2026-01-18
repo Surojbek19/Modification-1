@@ -3,7 +3,7 @@ console.log("Products frontend javascript file");
 $(function () {
     $(".product-collection").on("change", () => {
         const selectedValue = $(".product-collection").val();
-        if (selectedValue === "DRINK") {
+        if (selectedValue === "POT") {
             $("#product-collection").hide();
             $("#product-volume").show();
         } else {
