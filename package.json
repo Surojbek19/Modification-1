@@ -1,7 +1,7 @@
 {
-  "name": "burak",
+  "name": "ecoflora",
   "version": "1.0.0",
-  "description": "This is burak project backend",
+  "description": "This is ecoflora project backend",
   "main": "src/server.ts",
   "scripts": {
     "start": "ts-node src/server.ts",
@@ -10,7 +10,7 @@
     "train": "nodemon --exec ts-node src/train.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "MIT",
+  "author": "Michael",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^3.0.2",

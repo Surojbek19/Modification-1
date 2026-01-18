@@ -8,9 +8,9 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 
 const memberService = new MemberService();
 
-const restaurantController: T = {} 
+const storController: T = {} 
 
-restaurantController.goHome = (req: Request, res: Response) => {
+storController.goHome = (req: Request, res: Response) => {
     try{
         console.log("goHome")
         res.render("home");
@@ -21,7 +21,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
     }
 };
 
-restaurantController.getSignup = (req: Request, res: Response) => {
+storController.getSignup = (req: Request, res: Response) => {
     try{
         console.log("getSignup")
         res.render("signup");
@@ -32,7 +32,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
 };
 
 
-restaurantController.getLogin = (req: Request, res: Response) => {
+storController.getLogin = (req: Request, res: Response) => {
     try{
         console.log("getLogin")
         res.render("login");
@@ -42,7 +42,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
     }
 };
 
-restaurantController.processSignup = async(req: AdminRequest, res: Response) => {
+storController.processSignup = async(req: AdminRequest, res: Response) => {
     try{
         console.log("processSignup");
         const file = req.file;
@@ -51,7 +51,7 @@ restaurantController.processSignup = async(req: AdminRequest, res: Response) => 
         
         const newMember: MemberInput =req.body;
         newMember.memberImage = file?.path.replace(/\\/g, "/");
-        newMember.memberType = MemberType.RESTAURANT
+        newMember.memberType = MemberType.STOR
         const result = await memberService.processSignup(newMember);
 
         req.session.member = result;
@@ -66,7 +66,7 @@ restaurantController.processSignup = async(req: AdminRequest, res: Response) => 
     }
 };
 
-restaurantController.processLogin = async (req: AdminRequest, res: Response) => {
+storController.processLogin = async (req: AdminRequest, res: Response) => {
     try{
         console.log("processLogin")
 
@@ -85,7 +85,7 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
     }
 };
 
-restaurantController.logout = async (req: AdminRequest, res: Response) => {
+storController.logout = async (req: AdminRequest, res: Response) => {
     try{
         console.log("logout")
         req.session.destroy(function() {
@@ -98,7 +98,7 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
     }
 };
 
-restaurantController.getUsers = async (req: Request, res: Response) => {
+storController.getUsers = async (req: Request, res: Response) => {
     try {
         console.log("getUsers");
         const result = await memberService.getUsers();
@@ -112,7 +112,7 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
 };
 
 
-restaurantController.updateChosenUser = async (req: Request, res: Response) => {
+storController.updateChosenUser = async (req: Request, res: Response) => {
     try {
         console.log("updateChosenUser");
         const result = await memberService.updateChosenUser(req.body);
@@ -125,7 +125,7 @@ restaurantController.updateChosenUser = async (req: Request, res: Response) => {
 };
 
 
-restaurantController.checkAuthSession = async (req: AdminRequest, res: Response) => {
+storController.checkAuthSession = async (req: AdminRequest, res: Response) => {
     try{
         console.log("checkAuthSession")
 
@@ -138,12 +138,12 @@ restaurantController.checkAuthSession = async (req: AdminRequest, res: Response)
     }
 };
 
-restaurantController.verifyRestaurant = (
+storController.verifyStor = (
     req: AdminRequest, 
     res: Response,
     next: NextFunction
     ) => {
-    if(req.session?.member?.memberType === MemberType.RESTAURANT) {
+    if(req.session?.member?.memberType === MemberType.STOR) {
         req.member = req.session.member;
         next();
     } else {
@@ -155,4 +155,4 @@ restaurantController.verifyRestaurant = (
 };
         
 
-export default restaurantController;
+export default storController;

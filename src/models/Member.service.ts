@@ -105,9 +105,9 @@ class MemberService {
 
     /**=>SSR<=**/
 
-    public async getRestaurant(): Promise<Member> {
+    public async getStor(): Promise<Member> {
         const result = await this.memberModel
-        .findOne({ memberType: MemberType.RESTAURANT })
+        .findOne({ memberType: MemberType.STOR })
         .lean() //Odatda mongoose documnet bo'lgani uchun undan kelgan datani o'gartira olmaymiz lekin "lean" documnet ni plain objectga aylantrib berish uchun ishlatamiz. 
         .exec()
         result.target = "test"; // Mana shu datani result ni oxiriga qo'shib beradi
@@ -117,7 +117,7 @@ class MemberService {
 
     public async processSignup(input: MemberInput): Promise<Member> {
         const exist = await this.memberModel
-        .findOne({memberType: MemberType.RESTAURANT})
+        .findOne({memberType: MemberType.STOR})
         .exec();
         if(exist)  throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
 
